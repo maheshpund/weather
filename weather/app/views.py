@@ -4,8 +4,10 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.views import View
 
+from .decorators import login_required
 from .forms import UserForm, LoginForm
 from .models import User
 
@@ -38,8 +40,7 @@ def login(request):
     return render(request, template, context)
 
 
-
-
+@method_decorator(login_required, name='dispatch')
 class Weather(View):
     def get(self,request):
         template='weather.html'
