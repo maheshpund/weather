@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<form method="post">
+    {% if a == 'login'%}
+        <h3>login to weather API</h3>
+    {% else %}
+        <h3>Register Here</h3>
+    {% endif %}
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+
+    {% if a == 'login'%}
+        {% else %}
+        &ensp;&ensp;<a href="/l">Already have Account?</a>
+    {% endif %}
+
+
+</form>
+</body>
+</html>
