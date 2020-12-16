@@ -50,7 +50,8 @@ class Weather(View):
         try:
             c=request.POST['name']
             city=c.title()
-            api_address = 'http://api.openweathermap.org/data/2.5/weather?appid=5726071ef315a56f6057604ffdcfe07c&q='
+            apikey=''
+            api_address = 'http://api.openweathermap.org/data/2.5/weather?appid='+apikey
             url = api_address + city
             json_data = requests.get(url).json()
 
